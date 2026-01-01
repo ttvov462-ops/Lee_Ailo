@@ -293,24 +293,24 @@ body.dark .music-container {
 <body>
 
 <div class="stars"></div>
-<div class="container">
+<div class="container fade-in">
   <div class="header">
-    <h1 class="neon">✨ Привет!</h1>
-    <p class="subtitle">Добро пожаловать на мой <span style="font-weight:600;color:#a084ee;">интерактивный сайт</span></p>
+    <h1 class="neon">✨ Welcome to the Club!</h1>
+    <p class="subtitle">Выбирай стиль, слушай вайб, будь собой.</p>
   </div>
 
   <div class="section fade-in" style="animation-delay:0.2s;">
-    <h3>🎨 Выберите красивую тему</h3>
+    <h3>🎨 Выбери свой вайб</h3>
     <div class="button-group">
-      <button onclick="setTheme('')">💜 Фиолетовая</button>
-      <button onclick="setTheme('orange')">🟠 Оранжевая</button>
-      <button onclick="setTheme('blue')">🔵 Голубая</button>
-      <button onclick="setTheme('dark')">🌙 Тёмная</button>
+      <button onclick="setTheme('')">💜 Neon Purple</button>
+      <button onclick="setTheme('orange')">🧡 Juicy Orange</button>
+      <button onclick="setTheme('blue')">💙 Sky Blue</button>
+      <button onclick="setTheme('dark')">🌙 Dark Side</button>
     </div>
   </div>
 
   <div class="section fade-in" style="animation-delay:0.4s;">
-    <h3>📱 Найдите меня в соцсетях</h3>
+    <h3>📱 Давай дружить?</h3>
     <div class="link-group">
       <a href="https://www.tiktok.com/@Lee_Ailo" target="_blank">🎵 TikTok</a>
       <a href="https://t.me/Lee_Ailo" target="_blank">✈️ Telegram</a>
@@ -318,19 +318,18 @@ body.dark .music-container {
   </div>
 
   <div class="section fade-in" style="animation-delay:0.6s;">
-    <h3>🌟 Интерактивные функции</h3>
+    <h3>🌟 Немного магии здесь 👇</h3>
     <div class="button-group">
-      <button onclick="surprise()">🎁 Сюрприз</button>
-      <button onclick="playSound()">🎵 Мелодия</button>
-      <button onclick="toggleMusic()">🎬 Музыка</button>
+      <button onclick="surprise()">🎁 Жми сюда!</button>
+      <button onclick="playSound()">🎧 Поймай ритм</button>
+      <button onclick="toggleMusic()">🎬 Смотрим?</button>
     </div>
 
     <div id="musicDiv" class="music-container">
-      <h4>Вставьте YouTube ссылку</h4>
-      <input type="text" id="ytUrl" placeholder="https://www.youtube.com/watch?v=...">
+      <h4>📺 Что сегодня в тренде?</h4>
+      <input type="text" id="ytUrl" placeholder="Вставь ссылку на шедевр...">
       <div class="button-group">
-        <button onclick="playMusic()" style="flex: 1; margin: 0 6px;">▶️ Воспроизвести</button>
-        <button onclick="searchMusic()" style="flex: 1; margin: 0 6px;">🔍 Найти</button>
+        <button onclick="playMusic()" style="flex: 1; margin: 0 6px;">Запустить ⚡️</button>
       </div>
       <div id="playerDiv"></div>
     </div>
@@ -340,7 +339,7 @@ body.dark .music-container {
     <span>Сделано с любовью © 2026 | <span style="color:#764ba2;font-weight:700;">@Lee_Ailo</span></span>
   </footer>
 
-
+</div>
 <script>
 // Динамические звёзды на фоне
 function createStars() {
