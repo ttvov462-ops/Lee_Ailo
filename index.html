@@ -292,13 +292,14 @@ body.dark .music-container {
 </head>
 <body>
 
+<div class="stars"></div>
 <div class="container">
   <div class="header">
-    <h1>✨ Привет!</h1>
-    <p class="subtitle">Добро пожаловать на мой интерактивный сайт</p>
+    <h1 class="neon">✨ Привет!</h1>
+    <p class="subtitle">Добро пожаловать на мой <span style="font-weight:600;color:#a084ee;">интерактивный сайт</span></p>
   </div>
 
-  <div class="section">
+  <div class="section fade-in" style="animation-delay:0.2s;">
     <h3>🎨 Выберите красивую тему</h3>
     <div class="button-group">
       <button onclick="setTheme('')">💜 Фиолетовая</button>
@@ -308,7 +309,7 @@ body.dark .music-container {
     </div>
   </div>
 
-  <div class="section">
+  <div class="section fade-in" style="animation-delay:0.4s;">
     <h3>📱 Найдите меня в соцсетях</h3>
     <div class="link-group">
       <a href="https://www.tiktok.com/@Lee_Ailo" target="_blank">🎵 TikTok</a>
@@ -316,7 +317,7 @@ body.dark .music-container {
     </div>
   </div>
 
-  <div class="section">
+  <div class="section fade-in" style="animation-delay:0.6s;">
     <h3>🌟 Интерактивные функции</h3>
     <div class="button-group">
       <button onclick="surprise()">🎁 Сюрприз</button>
@@ -335,9 +336,36 @@ body.dark .music-container {
     </div>
   </div>
 
-</div>
+  <footer style="margin-top:36px;text-align:center;color:#a084ee;font-size:1.1em;opacity:0.8;">
+    <span>Сделано с любовью © 2026 | <span style="color:#764ba2;font-weight:700;">@Lee_Ailo</span></span>
+  </footer>
+
 
 <script>
+// Динамические звёзды на фоне
+function createStars() {
+  const stars = document.querySelector('.stars');
+  stars.innerHTML = '';
+  const count = window.innerWidth < 600 ? 40 : 90;
+  for (let i = 0; i < count; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.animationDuration = (2.5 + Math.random() * 2.5) + 's';
+    star.style.opacity = 0.2 + Math.random() * 0.7;
+    stars.appendChild(star);
+  }
+}
+window.addEventListener('resize', createStars);
+window.addEventListener('DOMContentLoaded', createStars);
+
+// Плавное появление секций
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.fade-in').forEach((el, i) => {
+    el.style.animationDelay = (parseFloat(el.style.animationDelay)||0) + 0.1*i + 's';
+  });
+});
 function setTheme(t) {
   document.body.className = t;
   localStorage.setItem('theme', t);
