@@ -15,6 +15,8 @@ body {
   padding: 20px;
   color: #333;
   overflow-x: hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
 .stars {
@@ -44,6 +46,7 @@ body {
 
 .container {
   max-width: 700px;
+  width: 100%;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.98);
   border-radius: 30px;
@@ -221,6 +224,8 @@ input:focus {
   box-shadow: 0 8px 30px rgba(102,126,234,0.2);
 }
 
+#playerDiv iframe { width: 100%; border: 0; display: block; aspect-ratio: 16/9; height: auto; }
+
 body.orange { background: linear-gradient(135deg, #f97316, #fb923c); background-attachment: fixed; }
 body.blue { background: linear-gradient(135deg, #0ea5e9, #06b6d4); background-attachment: fixed; }
 body.dark { background: linear-gradient(135deg, #1a1a2e, #0f172a); background-attachment: fixed; }
@@ -261,11 +266,26 @@ body.dark .music-container {
   border-color: #667eea;
 }
 
+@media (max-width: 900px) {
+  body { background-attachment: scroll; }
+  .container { padding: 30px 18px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.18); }
+  h1 { font-size: 2.8em; }
+}
+
 @media (max-width: 600px) {
-  .container { padding: 30px 20px; }
-  h1 { font-size: 2.5em; }
-  .section { padding: 20px; }
-  button, a { padding: 12px 20px; font-size: 0.9em; }
+  .container { padding: 24px 16px; margin: 12px; }
+  h1 { font-size: 2.2em; }
+  .section { padding: 16px; }
+  button, a { padding: 12px 16px; font-size: 0.95em; }
+  #playerDiv { box-shadow: none; }
+  .container { backdrop-filter: none; }
+  .music-container { padding: 16px; }
+}
+
+@media (max-width: 420px) {
+  h1 { font-size: 1.9em; }
+  .subtitle { font-size: 0.98em; }
+  button { padding: 12px 14px; }
 }
 </style>
 </head>
@@ -369,7 +389,7 @@ function playMusic() {
     return;
   }
   const vid = match[1];
-  document.getElementById('playerDiv').innerHTML = '<iframe width="100%" height="300" src="https://www.youtube.com/embed/' + vid + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+  document.getElementById('playerDiv').innerHTML = '<iframe src="https://www.youtube.com/embed/' + vid + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 }
 
 function searchMusic() {
